@@ -12,15 +12,13 @@
     PUBLISHER= TIPO:VARCHAR LONG:50;
     DESCRIPTION= TIPO:TEXT LONG:300;
 
-/*  coneccion a base de datos 
- */
- $com = mysqli_connect(
-     'localhost',//donde esta, dominio o ip//
-     'root',//usuario//
-     '',//password//
-     'LUDOTECA' // nombre de la base de datos //
+/*  coneccion a base de datos */
+$mysql = mysqli_connect(//conecion a la base 
+    'localhost',
+    'root',
+    '',
+    'LUDOTECA');
 
- );
  /*
   esto lo usamos para verificar que la base funciona 
  if(isset($com)){

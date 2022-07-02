@@ -1,4 +1,9 @@
 <?php
+$mysql = mysqli_connect(//conecion a la base 
+    'localhost',
+    'root',
+    '',
+    'LUDOTECA');
 function consultar($a,$b) {//pasamos consulta y resibimos un strig tipo texto
     $mysql= $a;
     $query = $b;
@@ -17,23 +22,11 @@ function consultar($a,$b) {//pasamos consulta y resibimos un strig tipo texto
     echo $jsonString;//devolvemos el resultado de  la consulta como un string
 
 }
-$mysql = mysqli_connect(//conecion a la base 
-    'localhost',
-    'root',
-    '',
-    'LUDOTECA');
 
-
-$search = $_POST['search'];
-
-if(!empty($search)){//si el valor search no esta vacio
-    $query = "SELECT * FROM GAME_REVIEWS WHERE NAME LIKE '$search%' ";//consulta
+$id = $_POST["id"];
+if(!empty($id)){
+    $query = "SELECT * FROM GAME_REVIEWS WHERE ID LIKE '$id%' ";//consulta
     consultar($mysql,$query);
 
-}else{ // si el valordela consultaes empty
-    $query = "SELECT * FROM GAME_REVIEWS ";//sobrescribimos la variable con una consulta general consulta
-    consultar($mysql,$query);
-    
 }
-
 ?>
